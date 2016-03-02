@@ -21,7 +21,7 @@ var userAddSql = 'INSERT INTO user(id, email, pass, passwd, t, u, d, transfer_en
 
 function makeParams_(num) {
     var userAddSql_Params = [getRndString_(8), getRndString_(14), '123456', getRndString_(14), '1410609560', '0', '0',
-        '10000000000000', Number(1025 + num), '1', '1', '7', '0', '0'];
+        '10000000000000', Number(5000 + num), '1', '1', '7', '0', '0'];
     return userAddSql_Params;
 }
 
