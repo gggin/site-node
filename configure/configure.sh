@@ -19,3 +19,9 @@ git clone -b manyuser https://github.com/gggin/shadowsocks.git
 cd shadowsocks
 cd shadowsocks
 sudo nohup python server.py &
+
+cd ..
+cd ..
+cd ..
+npm install
+node doSql.js
