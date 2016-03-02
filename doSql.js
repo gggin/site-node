@@ -40,8 +40,6 @@ function doInsert_(x, y) {
         console.log('INSERT ID:', result);
         console.log('-----------------------------------------------------------------\n\n');
     });
-
-    connection.end();
 }
 
 function doSelect_(x, callback) {
@@ -55,13 +53,12 @@ function doSelect_(x, callback) {
         callback(result);
         console.log('--------------------------------------------------------\n\n');
     });
-
-    connection.end();
 }
 
 for(var i = 1; i < 10; ++i) {
     doInsert_(userAddSql, makeParams_(i));
 }
+connection.end();
 
 /*
  doSelect_(userSelectSql, function(x){
