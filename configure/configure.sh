@@ -21,10 +21,14 @@ sudo service mysql start
 git clone -b manyuser https://github.com/gggin/shadowsocks.git
 cd shadowsocks
 cd shadowsocks
-sudo nohup python server.py &
+
+sudo printf "#"'!'"/bin/sh -e\nexec 2> /tmp/rc.local.log\nexec 1>&2\nset -x\n\nsh /root/site-node/configure/shadowsocks/shadowsocks/run.sh\nexit 0" > /etc/rc.local
+
+./run.sh
 
 cd ..
 cd ..
 cd ..
 npm install
+cp config.example.js config.js
 node doSql.js
