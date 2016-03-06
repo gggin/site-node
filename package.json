@@ -19,6 +19,7 @@
   "homepage": "https://github.com/gggin/site-node#readme",
   "dependencies": {
     "babel-preset-react": "^6.3.13",
+    "express": "^4.13.4",
     "immutable": "^3.7.6",
     "mysql": "^2.10.2"
   }
