@@ -1,7 +1,12 @@
 #!/bin/bash
 sudo apt-get update
 #安装python git nodejs npm等工具
-sudo apt-get install --yes git-core curl build-essential openssl libssl-dev python-pip python-dev mysql-server mysql-client python-dev python-m2crypto
+sudo apt-get install --yes git-core curl build-essential openssl libssl-dev python-pip python-dev python-dev python-m2crypto
+
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
+
+sudo apt-get install --yes mysql-server mysql-client
 
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
