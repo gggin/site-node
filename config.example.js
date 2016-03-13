@@ -9,5 +9,10 @@ module.exports = {
         password: '123456',
         database: 'shadowsocks'
     },
-    SECRET: "fdsfawefe 233c2rc%$^&@"
+    SECRET: "fdsfawefe 233c2rc%$^&@",
+    LC: {
+        'id':'',
+        'key':'',
+        'mk':''
+    }
 };

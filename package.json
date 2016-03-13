@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-jsx": "babel src --presets react --watch --out-dir build"
+    "run": "DEBUG=* node syncUserData.js",
+    "watch-jsx": "babel src --presets react --watch --out-dir build",
+    "deploy": "nohup node syncUserData.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,9 @@
   },
   "homepage": "https://github.com/gggin/site-node#readme",
   "dependencies": {
+    "avoscloud-sdk": "^0.6.9",
     "babel-preset-react": "^6.3.13",
+    "debug": "^2.2.0",
     "express": "^4.13.4",
     "immutable": "^3.7.6",
     "mysql": "^2.10.2"
