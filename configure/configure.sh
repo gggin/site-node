@@ -36,5 +36,11 @@ cd ..
 cd ..
 cd ..
 npm install
-cp config.example.js config.js
+cd ..
+git clone https://github.com/gggin/depoly-site-node
+cd depoly-site-node
+npm install
+DEBUG=* node index.js
+cd ..
+cd site-node
 node doSql.js
