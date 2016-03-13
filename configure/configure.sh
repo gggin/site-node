@@ -1,11 +1,11 @@
 #!/bin/bash
-sudo apt-get update
+sudo apt-get update < "/dev/null"
 
-sudo apt-get install --yes git-core curl build-essential openssl libssl-dev python-pip python-dev python-dev python-m2crypto
+sudo apt-get install --yes git-core curl build-essential openssl libssl-dev python-pip python-dev python-dev python-m2crypto < "/dev/null"
 
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
-sudo apt-get install --yes nodejs
+sudo apt-get install --yes nodejs < "/dev/null"
 cd ..
 cd ..
 git clone https://github.com/gggin/depoly-site-node
@@ -18,9 +18,9 @@ cd ..
 cd site-node
 cd configure
 
-#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
 
-#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
 
 sudo apt-get install --yes mysql-server mysql-client
 
