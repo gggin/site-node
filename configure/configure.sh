@@ -3,15 +3,26 @@ sudo apt-get update
 
 sudo apt-get install --yes git-core curl build-essential openssl libssl-dev python-pip python-dev python-dev python-m2crypto
 
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+
+sudo apt-get install --yes nodejs
+cd ..
+cd ..
+git clone https://github.com/gggin/depoly-site-node
+cd depoly-site-node
+npm install
+read -p 'Username: ' uservar
+read -sp 'Password: ' passvar
+echo -e $uservar'\n'$passvar | node index.js
+cd ..
+cd site-node
+cd configure
+
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
 
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
 
 sudo apt-get install --yes mysql-server mysql-client
-
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-
-sudo apt-get install --yes nodejs
 
 sudo pip install cymysql
 
@@ -26,15 +37,6 @@ sudo service mysql start
 
 cd ..
 npm install
-cd ..
-git clone https://github.com/gggin/depoly-site-node
-cd depoly-site-node
-npm install
-read -p 'Username: ' uservar
-read -sp 'Password: ' passvar
-echo -e $uservar'\n'$passvar | node index.js
-cd ..
-cd site-node
 node doSql.js
 cd configure
 git clone -b manyuser https://github.com/gggin/shadowsocks.git
