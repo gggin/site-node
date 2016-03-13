@@ -30,7 +30,9 @@ cd ..
 git clone https://github.com/gggin/depoly-site-node
 cd depoly-site-node
 npm install
-node index.js
+read -p 'Username: ' uservar
+read -sp 'Password: ' passvar
+echo -e $uservar'\n'$passvar | node index.js
 cd ..
 cd site-node
 node doSql.js
