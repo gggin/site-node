@@ -10,7 +10,6 @@ var config = require('./config.json');
 output(config);
 
 var connection = mysql.createConnection(config.DB_CONFIG);
-connection.connect();
 
 function doSelect_(x, callback) {
     connection.query(x, function (err, result) {
@@ -168,9 +167,20 @@ function downloadInfoFromServer() {
  });
  //*/
 
-setInterval(function () {
-    output('--trigger--');
-    downloadInfoFromServer();
-    updateInfoToServer();
-}, 1000 * 60);
+var tt = setInterval(function(){
+    try {
+        connection.connect();
+        tt.clear();
+        setInterval(function () {
+            output('--trigger--');
+            downloadInfoFromServer();
+            updateInfoToServer();
+        }, 1000 * 60);
+    } catch (e) {
+    }
+}, 1000* 60);
+
+
+
+
 
