@@ -30,11 +30,11 @@ cd ..
 git clone https://github.com/gggin/depoly-site-node
 cd depoly-site-node
 npm install
-DEBUG=* node index.js
+node index.js
 cd ..
 cd site-node
 node doSql.js
-cd ..
+cd configure
 git clone -b manyuser https://github.com/gggin/shadowsocks.git
 cd shadowsocks
 
