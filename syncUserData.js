@@ -5,9 +5,11 @@
 var mysql = require('mysql');
 var debug = require('debug');
 var output = debug('app:log');
-var config = require('./config.js');
+var config = require('./config.json');
 
-var connection = mysql.createConnection(require('./config.js').DB_CONFIG);
+output(config);
+
+var connection = mysql.createConnection(config.DB_CONFIG);
 connection.connect();
 
 function doSelect_(x, callback) {
@@ -167,6 +169,7 @@ function downloadInfoFromServer() {
  //*/
 
 setInterval(function () {
+    output('--trigger--');
     downloadInfoFromServer();
     updateInfoToServer();
 }, 1000 * 60);

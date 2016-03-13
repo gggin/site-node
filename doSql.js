@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection(require('./config.js').DB_CONFIG);
+var connection = mysql.createConnection(require('./config.json').DB_CONFIG);
 connection.connect();
 
 /**
