@@ -43,3 +43,6 @@ cd shadowsocks
 sudo printf "#"'!'"/bin/sh -e\nexec 2> /tmp/rc.local.log\nexec 1>&2\nset -x\n\nsh /root/site-node/configure/shadowsocks/shadowsocks/run.sh\nexit 0" > /etc/rc.local
 
 ./run.sh
+
+
+echo "SUCCESS!!"
