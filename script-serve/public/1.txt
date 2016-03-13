@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 sudo apt-get update
-sudo apt-get install --yes git python g++
+sudo apt-get install --yes git python g++ < "/dev/null"
 git clone https://github.com/gggin/site-node.git
 cd site-node
 cd configure

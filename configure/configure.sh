@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt-get update
-#安装python git nodejs npm等工具
+
 sudo apt-get install --yes git-core curl build-essential openssl libssl-dev python-pip python-dev python-dev python-m2crypto
 
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
