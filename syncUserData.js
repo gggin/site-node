@@ -9,7 +9,13 @@ var config = require('./config.json');
 
 output(config);
 
-var connection = mysql.createConnection(config.DB_CONFIG);
+var connection = mysql.createPool({
+    connectionLimit: 10,
+    host: config.DB_CONFIG.host,
+    user: config.DB_CONFIG.user,
+    password: config.DB_CONFIG.password,
+    database: config.DB_CONFIG.database
+});
 
 function doSelect_(x, callback) {
     connection.query(x, function (err, result) {
@@ -167,19 +173,12 @@ function downloadInfoFromServer() {
  });
  //*/
 
-var tt = setInterval(function(){
-    try {
-        connection.connect();
-        tt.clear();
-        setInterval(function () {
-            output('--trigger--');
-            downloadInfoFromServer();
-            updateInfoToServer();
-        }, 1000 * 60);
-    } catch (e) {
-    }
-}, 1000* 60);
 
+setInterval(function () {
+    output('--trigger--');
+    downloadInfoFromServer();
+    updateInfoToServer();
+}, 1000);
 
 
 
