@@ -178,7 +178,7 @@ setInterval(function () {
     output('--trigger--');
     downloadInfoFromServer();
     updateInfoToServer();
-}, 1000);
+}, 1000 * 60 * 5);
 
 
 
